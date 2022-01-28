@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { useQuery } from "react-query";
 import Spinner from './components/Spinner/Spinner';
-
-
+import Cart from './components/Cart/Cart';
+import { Drawer, Badge } from "@material-ui/core";
+import { AiOutlineShoppingCart } from 'react-icons/ai'
+import Item from "./components/Item/Item";
 
 export type cartItemType = {
   id: number;
@@ -15,7 +17,7 @@ export type cartItemType = {
 }
 
 function App() {
-  const [cartOpen, setCartOpen] = useState(false);
+  const [cartOpen, setCartOpen]: [boolean, React.Dispatch<React.SetStateAction<boolean>>] = useState<boolean>(false);
   const [cartItems, setCartItems] = useState([] as cartItemType[]);
 
 
@@ -60,7 +62,33 @@ function App() {
 
   return (
     <div className="App">
-      <h1>It will be written something great in a day or two.</h1>
+      <Drawer
+        anchor="right"
+        open={cartOpen}
+        onClose={() => setCartOpen(false)}
+      >
+        <Cart
+          cartItems={cartItems}
+          handleAddToCart={handleAddToCart}
+          handleRemoveFromCart={handleRemoveFromCart}
+        />
+      </Drawer>
+      <button
+        onClick={() => setCartOpen(true)}
+        className="fixed z-30 flex items-center cursor-pointer right-16 top-6"
+      >
+        <Badge badgeContent={getTotalItems(cartItems)}>
+          <AiOutlineShoppingCart />
+        </Badge>
+      </button>
+
+      <div className="grid grid-cols-2 sm:grid-cols-4 justify-center items-center m-4">
+        {data?.map((item) => (
+          <div key={item.id}>
+            <Item item={item} handleAddToCart={handleAddToCart} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
