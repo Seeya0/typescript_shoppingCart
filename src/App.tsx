@@ -82,7 +82,7 @@ function App() {
         </Badge>
       </button>
 
-      <div className="grid grid-cols-2 sm:grid-cols-4 justify-center items-center m-4">
+      <div className="grid gap-2 grid-cols-2 sm:grid-cols-4 m-4">
         {data?.map((item) => (
           <div key={item.id}>
             <Item item={item} handleAddToCart={handleAddToCart} />
