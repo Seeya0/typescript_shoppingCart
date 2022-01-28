@@ -8,7 +8,7 @@ type CartItem = {
 
 const Item: React.VFC<CartItem> = ({ item, handleAddToCart }) => {
     return (
-        <div>
+        <>
             <img src={item.image} alt={item.title} />
             <div>
                 <h3>{item.title}</h3>
@@ -16,7 +16,7 @@ const Item: React.VFC<CartItem> = ({ item, handleAddToCart }) => {
                 <h3>${item.price}</h3>
             </div>
             <button onClick={() => handleAddToCart(item)}>Add to cart!</button>
-        </div>
+        </>
     );
 };
 

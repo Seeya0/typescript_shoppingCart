@@ -6,7 +6,7 @@ import CartItem from '../CartItem/CartItem';
 
 type CartItemsInCart = {
     cartItems: cartItemType[];
-    handleAddToCart: (clickedItem: cartItemType[]) => void;
+    handleAddToCart: (clickedItem: cartItemType) => void;
     handleRemoveFromCart: (id: number) => void;
 }
 
@@ -16,8 +16,8 @@ const Cart: React.VFC<CartItemsInCart> = ({ cartItems, handleAddToCart, handleRe
     }
 
     return (
-        <div>
-            <h1>Shopping Cart</h1>
+        <div className="top-0 right-0 w-[35vw] bg-green-100  p-10 pl-20 fixed h-full z-40">
+            <h1 className='my-6'>Shopping Cart</h1>
             {cartItems.length === 0 ? <p>No items in your cart, mate.</p> : null}
             {cartItems.map((item) => (
                 <CartItem

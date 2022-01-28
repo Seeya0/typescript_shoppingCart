@@ -3,7 +3,7 @@ import { cartItemType } from '../../App';
 
 type CartItemsInCart = {
     item: cartItemType;
-    handleAddToCart: (clickedItem: cartItemType[]) => void;
+    handleAddToCart: (clickedItem: cartItemType) => void;
     handleRemoveFromCart: (id: number) => void;
 }
 
