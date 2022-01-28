@@ -8,7 +8,7 @@ type CartItem = {
 
 const Item: React.VFC<CartItem> = ({ item, handleAddToCart }) => {
     return (
-        <div className="p-6 max-w-sm bg-white rounded-lg border min-h-full border-gray-200 shadow-lg">
+        <div className="flex flex-col items-center justify-around p-6 max-w-sm bg-white rounded-lg border min-h-full border-gray-200 shadow-lg">
             <img src={item.image} alt={item.title} className="w-11/12" />
             <div>
                 <h3 className="mb-2 text-2xl font-bold text-gray-900">{item.title}</h3>
