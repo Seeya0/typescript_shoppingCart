@@ -17,7 +17,7 @@ const Item: React.VFC<CartItem> = ({ item, handleAddToCart }) => {
             </div>
             <button
                 onClick={() => handleAddToCart(item)}
-                className="inline-flex items-center py-2 px-3 font-medium bg-green-700 hover:bg-green-800 focus:ring-4 rounded-xl"
+                className="inline-flex items-center py-2 px-3 font-medium bg-green-500 hover:bg-green-600 focus:ring-4 rounded-xl"
             >Add to cart!</button>
         </div>
     );

@@ -9,12 +9,11 @@ type CartItemsInCart = {
 
 const CartItem: React.VFC<CartItemsInCart> = ({ item, handleAddToCart, handleRemoveFromCart }) => {
     return (
-        <div>
-            <h3>{item.title}</h3>
-            <p>Price: ${item.price}</p>
-            <p>Total: ${(item.amount * item.price).toFixed(2)}</p>
+        <div className="flex flex-col text-gray-800">
+            <h3 className="text-2xl my-3">{item.title}</h3>
+            <img className="w-4/12" src={item.image} alt={item.title} />
 
-            <div>
+            <div className="flex items-end justify-end gap-5 text-2xl">
                 <button
                     onClick={() => handleRemoveFromCart(item.id)}
                 >
@@ -27,7 +26,10 @@ const CartItem: React.VFC<CartItemsInCart> = ({ item, handleAddToCart, handleRem
                     +
                 </button>
             </div>
-            <img src={item.image} alt={item.title} />
+            <div className="flex flex-col items-end justify-end">
+                <p className="text-xl">Price: ${item.price}</p>
+                <p className="text-xl">Total: ${(item.amount * item.price).toFixed(2)}</p>
+            </div>
         </div>
     );
 };

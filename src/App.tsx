@@ -77,8 +77,8 @@ function App() {
         onClick={() => setCartOpen(true)}
         className="fixed z-30 flex items-center cursor-pointer right-16 top-6"
       >
-        <Badge badgeContent={getTotalItems(cartItems)}>
-          <AiOutlineShoppingCart />
+        <Badge badgeContent={getTotalItems(cartItems)} color="primary" className="p-2 text-white bg-green-300 rounded-full">
+          <AiOutlineShoppingCart className="text-3xl" />
         </Badge>
       </button>
 
